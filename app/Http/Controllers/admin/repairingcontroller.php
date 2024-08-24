@@ -8,6 +8,7 @@ use App\Repairing;
 use App\Company;
 use App\Issues;
 use DataTables;
+use DB;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
@@ -23,7 +24,11 @@ class repairingcontroller extends Controller
 	public function getall(Request $request){
 		if ($request->ajax())
         {
-            $data = Repairing::orderby('id','desc')->select('*')->get();
+            $data = Repairing::orderby('id','desc');
+            if($request->start_date && $request->end_date){
+                $data->whereBetween(DB::raw('DATE(created_at)'), [$request->start_date, $request->end_date]);
+            }
+            $data->get();
             return Datatables::of($data)->make(true);
         }
 	}

@@ -48,13 +48,26 @@
                         <div class="d-flex justify-content-end align-items-center">
                             <ol class="breadcrumb">
                                 <li class="breadcrumb-item"><a href="/">Home</a></li>
-                                <li class="breadcrumb-item active">Users</li>
+                                <li class="breadcrumb-item active">Repairing</li>
                             </ol>
                             <!-- <button type="button" class="btn btn-info d-none d-lg-block m-l-15"><i class="fa fa-plus-circle"></i> Create New</button> -->
                         </div>
                     </div>
                 </div>
                 <div class="row">
+                    <div class="row">
+                        <div class="form-group col-md-4">
+                            <label class="form-label">Start Date</label>
+                            <input type="date" name="start_date" id="start_date" class="form-control">
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label class="form-label">End Date</label>
+                            <input type="date" name="end_date" id="end_date"  class="form-control">
+                        </div>
+                        <div class="col-md-3 align-self-center">
+                            <button type="button" class="btn waves-effect filter_btn waves-light btn-secondary ">Filter</button>
+                        </div>
+                    </div>
                     <div class="col-12 table-responsive">
                         <table class="table table-bordered repairingdata w-100 table-sm table-striped">
                             <thead class="bg-dark text-white">
@@ -247,9 +260,10 @@
 </body>
 <script type="text/javascript">
     // $('#updatebranch,#branch').select2();
-    $('.repairingdata').DataTable({
+    var table = $('.repairingdata').DataTable({
         "pageLength": 20,
         "responsive": true,
+        "serverSide": true,
         "processing" : true,
         "destroy": true,
         "ordering": false,
@@ -257,7 +271,13 @@
         "columnDefs": [
             {"className" : 'text-center', "targets" : '_all'},
         ],
-        "ajax": "{{ url('/repairing/getall') }}",
+        "ajax": {
+               url: "{{ url('/repairing/getall') }}",
+               data: function (d) {
+                d.start_date = $('#start_date').val(),
+                d.end_date = $('#end_date').val()
+               }
+           },
         "columns": [
             {data: 'id', name: 'id'},
             {data: 'name', name: 'name'},
@@ -284,6 +304,9 @@
             },
         ],
     });
+    $(".filter_btn").click(function(){
+        table.draw();
+       });
     $(document).ready(function(){
         $(document).on("click","#editentry",function(){
             var entryid = $(this).attr("data-id");
