@@ -23,6 +23,6 @@ class dashboardcontroller extends Controller
 		$totalexpense = $mobiledata->expense;
 		$totalprofit = $mobiledata->profit;
 
-		return view("dashboard",compact('totalentries',"totalrepairing","totalexpense","totalprofit"));
+		return view("dashboard",compact('totalentries',"totalrepairing","totalexpense","totalprofit","start_date","end_date"));
 	}
 }

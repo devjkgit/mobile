@@ -67,11 +67,11 @@
                     <div class="form-group col-md-3">
                                 <form method="get" action="">
                                 <label class="form-label">Start Date</label>
-                                <input type="date" name="start_date" id="start_date" class="form-control">
+                                <input type="date" value="{{ $start_date }}" name="start_date" id="start_date" class="form-control">
                             </div>
                             <div class="form-group col-md-3">
                                 <label class="form-label">End Date</label>
-                                <input type="date" name="end_date" id="end_date"  class="form-control">
+                                <input type="date" name="end_date" value="{{ $end_date }}" id="end_date"  class="form-control">
                             </div>
                             <div class="col-md-3 align-self-center">
                                 <button type="submit" class="btn waves-effect filter_btn waves-light btn-secondary ">Filter</button>
