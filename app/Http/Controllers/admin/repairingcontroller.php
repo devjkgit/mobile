@@ -33,100 +33,6 @@ class repairingcontroller extends Controller
         }
 	}
 
-    public function profile(Request $request)
-    {
-        $userdata = Auth::user()->all();
-        return view('profile',compact('userdata'));
-    }
-
-    public function profilename(Request $request)
-    {
-        $validator =  Validator::make($request->all(), [
-            // 'username' => ['unique:users'],
-                'username' => 'unique:users,username,' . Auth::user()->id
-        ]);
-
-        if ($validator->fails())
-        {
-             return response()->json(['success'=>"0",'error'=>$validator->errors()->messages()]);
-        }
-
-        $user = User::find($request->id);
-
-        $user->username = $request->username;
-        // $user->update();
-
-        if($user->update()){
-            return response()->json(['success'=>"1",'response'=>"Username updated successfully."]);
-        }   
-        else
-        {
-            return response()->json(['success'=>"0",'error'=>"There is something wrong please try again later."]);
-        }
-    }
-
-    public function changeimage(Request $request)
-    {
-        $user = User::find($request->id);
-
-        if(!empty($request->profileimage))
-        {
-            ($user->profileimage != "")?@unlink(public_path('/assets/images/profileimage/'.$user->profileimage)):"";
-            $path = public_path().'/assets/images/profileimage';
-            $image = $request->profileimage;
-            $filename = strtolower(time().$image->getClientOriginalName());
-            $image->move($path, $filename);
-            $user->profileimage = $filename;
-        }
-
-        if($user->update()){
-            return response()->json(['success'=>"1",'response'=>"User profile updated successfully."]);
-        }   
-        else
-        {
-            return response()->json(['success'=>"0",'error'=>"There is something wrong please try again later."]);
-        }
-    }
-
-    public function removeprofile(){
-        $user = User::find(Auth::user()->id);
-        ($user->profileimage != "")?@unlink(public_path('/assets/images/profileimage/'.$user->profileimage)):"";
-        $user->profileimage = "";
-        if($user->update()){
-            return response()->json(['success'=>"1",'response'=>"User profile updated successfully."]);
-        }   
-        else
-        {
-            return response()->json(['success'=>"0",'error'=>"There is something wrong please try again later."]);
-        }
-    }
-
-    public function changepwd(Request $request)
-    {
-        // dd($request->all());
-        $authpwd = Auth::user()->password;
-
-        if(Hash::check($request->oldpwd, $authpwd)) 
-        {
-            $user = User::find($request->id);
-
-            $user->password = Hash::make($request->newpwd);
-
-            if($user->update()){
-                return response()->json(['success'=>"1",'response'=>"User password updated successfully."]);
-            }   
-            else
-            {
-                return response()->json(['success'=>"0",'error'=>"There is something wrong please try again later."]);
-            }
-        }
-        else
-        {
-            return response()->json(['success'=>"0",'error'=>"Old password is wrong please try again."]);
-        }
-
-    }
-
 	public function addentry(Request $request){
         $entry = new Repairing();
         $entry->name = $request->name;
@@ -136,6 +42,7 @@ class repairingcontroller extends Controller
         $entry->imei = $request->imei;
         $entry->issue = $request->issue;
         $entry->other_issue = $request->other_issue;
+        $entry->payment = $request->payment;
         $entry->total = $request->total;
         $entry->expense = $request->expense;
         $entry->profit = $request->total-$request->expense;
@@ -159,6 +66,7 @@ class repairingcontroller extends Controller
         $entry->imei = $request->imei;
         $entry->issue = $request->issue;
         $entry->other_issue = $request->other_issue;
+        $entry->payment = $request->payment;
         $entry->total = $request->total;
         $entry->expense = $request->expense;
         $entry->profit = $request->total-$request->expense;

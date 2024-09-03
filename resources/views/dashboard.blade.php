@@ -63,71 +63,93 @@
                 <!-- ============================================================== -->
                 <!-- Info box -->
                 <!-- ================   ============================================== -->
+                <div class="row">
+                    <div class="form-group col-md-3">
+                                <form method="get" action="">
+                                <label class="form-label">Start Date</label>
+                                <input type="date" name="start_date" id="start_date" class="form-control">
+                            </div>
+                            <div class="form-group col-md-3">
+                                <label class="form-label">End Date</label>
+                                <input type="date" name="end_date" id="end_date"  class="form-control">
+                            </div>
+                            <div class="col-md-3 align-self-center">
+                                <button type="submit" class="btn waves-effect filter_btn waves-light btn-secondary ">Filter</button>
+                            </form>
+                            </div>
+                    </div>
                 <div class="card-group total_box_parent">
-                    @if(Auth::user()->is_admin  == '1')
-                        <div class="card total_box_main mx-2">
-                            <a href="/users">
-                            <div class="card-body">
-                                <div class="row">
+                    <div class="card total_box_main mx-2">
+                        <div class="card-body">
+                            <div class="row">
 
-                                    <div class="col-md-12">
-                                        <div class="d-flex no-block align-items-center">
-                                            <div>
-                                                <h3><i class="fa fa-users"></i></h3>
-                                                <p class="text-muted">Total no. of users</p>
-                                            </div>
-                                            <div class="ml-auto">
-                                                <h2 class="counter text-primary">{{ $usercount }}</h2>
-                                            </div>
+                                <div class="col-md-12">
+                                    <div class="d-flex no-block align-items-center">
+                                        <div>
+                                            <h3><i class="fa fa-users"></i></h3>
+                                            <p class="text-muted">Total Entries</p>
+                                        </div>
+                                        <div class="ml-auto">
+                                            <h2 class="counter text-primary">{{ $totalentries }}</h2>
                                         </div>
                                     </div>
-                                    
                                 </div>
+                                
                             </div>
-                            </a>
                         </div>
-                    @endif
-
+                    </div>
                     <div class="card total_box_main mx-2">
-                        <a href="/products">
                         <div class="card-body">
                             <div class="row">
                                 <div class="col-md-12">
                                     <div class="d-flex no-block align-items-center">
                                         <div>
-                                            <h3><i class="fa fa-users"></i></h3>
-                                            <p class="text-muted">Total no. of products</p>
+                                            <h3><i class="fa fa-gears"></i></h3>
+                                            <p class="text-muted">Total Repairing</p>
                                         </div>
                                         <div class="ml-auto">
-                                            <h2 class="counter text-primary">{{ $prodcount }}</h2>
+                                            <h2 class="counter text-primary"><i class="fa fa-inr"></i> {{ $totalrepairing }}</h2>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        </a>
                     </div>
 
                     <div class="card total_box_main mx-2">
-                        <a href="/companies">
                         <div class="card-body">
                             <div class="row">
                                 <div class="col-md-12">
                                     <div class="d-flex no-block align-items-center">
                                         <div>
-                                            <h3><i class="fa fa-users"></i></h3>
-                                            <p class="text-muted">Total no. of Companies</p>
+                                            <h3><i class="fa fa-inr fa-lg"></i></h3>
+                                            <p class="text-muted">Total Expense</p>
                                         </div>
                                         <div class="ml-auto">
-                                            <h2 class="counter text-primary">{{ $companycount }}</h2>
+                                            <h2 class="counter text-primary"><i class="fa fa-inr"></i> {{ $totalexpense }}</h2>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        </a>
                     </div>
-                    
+                    <div class="card total_box_main mx-2">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="d-flex no-block align-items-center">
+                                        <div>
+                                            <h3><i class="fa fa-inr fa-lg"></i></h3>
+                                            <p class="text-muted">Profit</p>
+                                        </div>
+                                        <div class="ml-auto">
+                                            <h2 class="counter text-primary"><i class="fa fa-inr"></i> {{ $totalprofit }}</h2>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
                 

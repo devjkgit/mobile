@@ -4,7 +4,7 @@
             <ul id="sidebarnav">
                 @if(Auth::user()->is_admin != 0)
                     @if(Auth::user()->is_admin == 1)
-                    <!-- <li> <a class="waves-effect waves-dark" href="{{ url('dashboard')}}" aria-expanded="false"><i class="icon-speedometer"></i><span class="hide-menu">Dashboard </span></a></li> -->
+                    <li> <a class="waves-effect waves-dark" href="{{ url('dashboard')}}" aria-expanded="false"><i class="icon-speedometer"></i><span class="hide-menu">Dashboard </span></a></li>
                     <!-- <li> <a class="waves-effect waves-dark" href="{{ url('users')}}" aria-expanded="false"><i class="fa fa-users"></i><span class="hide-menu">Users </span></a></li> -->
                     <li> <a class="waves-effect waves-dark" href="{{ url('repairing')}}" aria-expanded="false"><i class="fa fa-users"></i><span class="hide-menu">Repairing</span></a></li>
                     @endif            

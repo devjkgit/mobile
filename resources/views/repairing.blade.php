@@ -80,6 +80,7 @@
                                     <th>IMEI</th>
                                     <th>Issue</th>
                                     <th>Other Issue</th>
+                                    <th>Payment</th>
                                     <th>Total</th>
                                     <th>Expense</th>
                                     <th>Profit</th>
@@ -141,6 +142,13 @@
                                     <div class="form-group" >
                                         <label>Other Issue</label>
                                         <input type="text" name="other_issue" id="other_issue" class="form-control">
+                                    </div>
+                                    <div class="form-group" >
+                                        <label>Payment</label>
+                                        <select class="form-control selectpicker" id="payment" name="payment">
+                                            <option value="CASH" selected>Cash</option>
+                                            <option value="CREDIT">Credit</option>
+                                        </select>
                                     </div>
                                     <div class="form-group">
                                         <label>Total</label>
@@ -212,6 +220,13 @@
                                         <label>Other Issue</label>
                                         <input type="text" name="other_issue" id="update_other_issue" class="form-control">
                                     </div>
+                                    <div class="form-group" >
+                                        <label>Payment</label>
+                                        <select class="form-control selectpicker" id="update_payment" name="payment">
+                                            <option value="CASH">Cash</option>
+                                            <option value="CREDIT">Credit</option>
+                                        </select>
+                                    </div>
                                     <div class="form-group">
                                         <label>Total</label>
                                         <input type="number" class="form-control" name="total" id="updatetotal" />
@@ -271,6 +286,11 @@
         "columnDefs": [
             {"className" : 'text-center', "targets" : '_all'},
         ],
+        "createdRow": function( row, data, dataIndex){
+            if(data['payment'] == "CREDIT" ){
+                $(row).css('background-color', '#F39B9B');
+            }
+        },
         "ajax": {
                url: "{{ url('/repairing/getall') }}",
                data: function (d) {
@@ -287,6 +307,7 @@
             {data: 'imei', name: 'imei'},
             {data: 'issue', name: 'issue'},
             {data: 'other_issue', name: 'other_issue'},
+            {data: 'payment', name: 'payment'},
             {data: 'total', name: 'total'},
             {data: 'expense', name: 'expense'},
             {data: 'profit', name: 'profit'},
@@ -342,6 +363,8 @@
                         $("#updateexpense").val(data.response.expense);
                         $("#updatecompany").selectpicker("val",data.response.company);
                         $("#updatecompany").selectpicker("refresh");
+                        $("#update_payment").selectpicker("val",data.response.payment);
+                        $("#update_payment").selectpicker("refresh");
                         $("#updateissue").selectpicker("val",data.response.issue);
                         $("#updateissue").selectpicker("refresh");
                         $("#entryid").val(data.response.id);
