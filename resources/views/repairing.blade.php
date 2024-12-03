@@ -483,7 +483,8 @@
                                 z_index: 9999999,
                                 mouse_over: "pause",
                             });
-                             $('.repairingdata').DataTable().ajax.reload();  
+                            location.reload();
+                            //$('.repairingdata').DataTable().ajax.reload();  
                         }
                     }
                 });
@@ -536,7 +537,8 @@
                                 z_index: 9999999,
                                 mouse_over: "pause",
                             });
-                            $('.repairingdata').DataTable().ajax.reload(); 
+                            location.reload();
+                            //$('.repairingdata').DataTable().ajax.reload(); 
                         }
                     }
                 });
