@@ -3,10 +3,10 @@
 namespace App\Http\Controllers\admin;
 use Auth;
 use Validator,Redirect,Response;
-use App\User;
-use App\Repairing;
-use App\Company;
-use App\Issues;
+use App\Models\User;
+use App\Models\Repairing;
+use App\Models\Company;
+use App\Models\Issues;
 use DataTables;
 use DB;
 use App\Http\Controllers\Controller;
@@ -25,6 +25,7 @@ class repairingcontroller extends Controller
 		if ($request->ajax())
         {
             $data = Repairing::orderby('id','desc');
+            $data->where('userid',Auth::user()->id);
             if($request->start_date && $request->end_date){
                 $data->whereBetween(DB::raw('DATE(created_at)'), [$request->start_date, $request->end_date]);
             }
@@ -35,6 +36,7 @@ class repairingcontroller extends Controller
 
 	public function addentry(Request $request){
         $entry = new Repairing();
+        $entry->userid = Auth::user()->id;
         $entry->name = $request->name;
         $entry->phone_no = $request->phone_no;
         $entry->company = $request->company;

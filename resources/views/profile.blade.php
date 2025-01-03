@@ -8,7 +8,7 @@
     <div class="preloader">
         <div class="loader">
             <div class="loader__figure"></div>
-            <p class="loader__label">Product Pricing</p>
+            <p class="loader__label">Mobile Data</p>
         </div>
     </div>
     <!-- ============================================================== -->
@@ -63,9 +63,9 @@
                             <div class="card-img-overlay card-inverse text-white social-profile d-flex justify-content-center">
                                 <div class="align-self-center"> 
                                     @if(Auth::user()->profileimage != "")
-                                        <img src="public/assets/images/profileimage/{{ Auth::user()->profileimage }}" class="img-circle" width="100" height="100">
+                                        <img src="{{ url('assets/images/profileimage/'.Auth::user()->profileimage) }}" class="img-circle" width="100" height="100">
                                     @else
-                                        <img src="public/assets/images/profileimage/user2.png" class="img-circle" width="100" height="100">
+                                        <img src="{{ url('assets/images/profileimage/user2.png') }}" class="img-circle" width="100" height="100">
                                     @endif
                                                                         
                                     <h4 class="card-title" style="margin-top: 15px;">{{ Auth::user()->username }}</h4>
@@ -315,7 +315,6 @@
                 data: data,
                 url:"{{ url('/users/changeimage') }}",
                 success:function(data){
-                    
                     if(data.success == "0"){
                         $(".Loader").hide();
                         $.each(data.error, function(key, value){

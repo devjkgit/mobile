@@ -6,7 +6,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <!-- Favicon icon -->
-    <link rel="icon" type="image/png" sizes="16x16" href="{{ env('PATHTOPUBLIC') }}assets/images/favicon.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ url('assets/images/favicon.png') }}">
     <title>Mobile Data</title>
     <link rel="manifest" href="/manifest.json">
     <link rel="icon" href="favicon.ico" type="image/x-icon" />  
@@ -19,23 +19,23 @@
     <meta name="theme-color" content="white"/>  
     <!-- This page CSS -->
     <!-- chartist CSS -->
-    <link href="public/assets/node_modules/morrisjs/morris.css " rel="stylesheet">
+    <link href="{{ url('assets/node_modules/morrisjs/morris.css') }} " rel="stylesheet">
     <!--Toaster Popup message CSS -->
-    <link href="public/assets/node_modules/toast-master/css/jquery.toast.css " rel="stylesheet">
+    <link href="{{ url('assets/node_modules/toast-master/css/jquery.toast.css') }}" rel="stylesheet">
     <!-- Custom CSS -->
-    <link href="public/dist/css/style.min.css " rel="stylesheet">
+    <link href="{{ url('dist/css/style.min.css') }}" rel="stylesheet">
     <!-- Dashboard 1 Page CSS -->
-    <link href="public/dist/css/pages/dashboard1.css " rel="stylesheet">
-    <link href="public/assets/custom.css " rel="stylesheet">
+    <link href="{{ url('dist/css/pages/dashboard1.css') }}" rel="stylesheet">
+    <link href="{{ url('assets/custom.css') }}" rel="stylesheet">
     <link href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">
     <link href="https://cdn.datatables.net/responsive/2.2.3/css/responsive.dataTables.min.css">
     <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-    <link href="public/assets/node_modules/select2/dist/css/select2.min.css " rel="stylesheet" type="text/css" />
-    <link rel="stylesheet" href="public/assets/node_modules/dropify/dist/css/dropify.min.css ">
-    <link rel="stylesheet" type="text/css" href="public/assets/css/bootstrap-toggle.min.css">
-    <link rel="stylesheet" type="text/css" href="public/assets/node_modules/bootstrap-select/bootstrap-select.min.css ">
-    <link rel="stylesheet" type="text/css" href="public/assets/node_modules/bootstrap-tagsinput/dist/bootstrap-tagsinput.css ">
-    <link rel="stylesheet" type="text/css" href="public/assets/node_modules/bootstrap-daterangepicker/daterangepicker.css ">
+    <link href="{{ url('assets/node_modules/select2/dist/css/select2.min.css') }}" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="{{ url('assets/node_modules/dropify/dist/css/dropify.min.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url('assets/css/bootstrap-toggle.min.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url('assets/node_modules/bootstrap-select/bootstrap-select.min.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url('assets/node_modules/bootstrap-tagsinput/dist/bootstrap-tagsinput.css') }} ">
+    <link rel="stylesheet" type="text/css" href="{{ url('assets/node_modules/bootstrap-daterangepicker/daterangepicker.css') }} ">
 </head>
 <style type="text/css">
     .form_detail_box p{

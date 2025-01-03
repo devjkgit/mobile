@@ -2,7 +2,7 @@
             <nav class="navbar top-navbar navbar-expand-md navbar-dark">
                 <div class="navbar-header" style="text-align: center; width: 220px; padding-left: 0;">
                      <a class="navbar-brand" href="{{ url('/') }}">
-                        <img src="/assets/images/admin-logo.png" alt="">
+                        <img src="/assets/images/mobile-data-logo.png" alt="">
                      </a>
                 </div>
                 <div class="navbar-collapse">
@@ -16,9 +16,9 @@
                         <li class="nav-item dropdown u-pro">
                             <a class="nav-link dropdown-toggle waves-effect waves-dark profile-pic" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 @if(Auth::user()->profileimage != "")
-                                        <img src="public/assets/images/profileimage/{{ Auth::user()->profileimage }}" class="img-circle" width="30" height="30">
+                                        <img src="{{ url('assets/images/profileimage/'.Auth::user()->profileimage) }}" class="img-circle" width="30" height="30">
                                     @else
-                                        <img src="{{ url('public/assets/images/profileimage/user2.png')}}" alt="user" class="" width="30" height="30">
+                                        <img src="{{ url('assets/images/profileimage/user2.png')}}" alt="user" class="" width="30" height="30">
                                     @endif
 
                                  <span class="hidden-md-down"> {{ Auth::user()->username }} &nbsp;<i class="fa fa-angle-down"></i></span> </a>

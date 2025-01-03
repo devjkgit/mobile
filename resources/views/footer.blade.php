@@ -1,3 +1,3 @@
 <footer class="footer">
-            © Yug Mobile – All Rights Reserved.
+            © Mobile-Data – All Rights Reserved.
         </footer>

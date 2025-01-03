@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="description" content="">
         <meta name="author" content="">
-        <link rel="icon" type="image/png" sizes="16x16" href="public/assets/images/favicon.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="{{ url('assets/images/favicon.png') }}">
         <title>User - Login</title>
         <link rel="manifest" href="manifest.json">
         <link rel="icon" href="favicon.ico" type="image/x-icon" />  
@@ -16,14 +16,14 @@
         <meta name="msapplication-TileImage" content="images/hello-icon-144.png">  
         <meta name="msapplication-TileColor" content="#FFFFFF">
         <meta name="theme-color" content="white"/>  
-        <link href="public/assets/node_modules/register-steps/steps.css" rel="stylesheet">
-        <link href="public/dist/css/pages/register3.css" rel="stylesheet">
-        <link href="public/assets/custom.css" rel="stylesheet">
-        <link href="public/dist/css/style.min.css" rel="stylesheet">
-        <link href="public/dist/css/pages/login-register-lock.css" rel="stylesheet">
+        <link href="{{ url('assets/node_modules/register-steps/steps.css') }}" rel="stylesheet">
+        <link href="{{ url('dist/css/pages/register3.css') }}" rel="stylesheet">
+        <link href="{{ url('assets/custom.css') }}" rel="stylesheet">
+        <link href="{{ url('dist/css/style.min.css') }}" rel="stylesheet">
+        <link href="{{ url('dist/css/pages/login-register-lock.css') }}" rel="stylesheet">
         <!-- Custom CSS -->
-        <link href="public/dist/css/style.min.css" rel="stylesheet">
-        <link href="public/assets/custom.css" rel="stylesheet">
+        <link href="{{ url('dist/css/style.min.css') }}" rel="stylesheet">
+        <link href="{{ url('assets/custom.css') }}" rel="stylesheet">
     </head>
     <body class="skin-default card-no-border" data-new-gr-c-s-check-loaded="14.997.0" data-gr-ext-installed="" cz-shortcut-listen="true">
                             <div class="Loader" style="top: 50%;left:50%"></div>
@@ -69,13 +69,12 @@
                 </div>
             </div>
         </section>
-        <script src="js/main.js"></script>
-        <script src="public/assets/node_modules/jquery/jquery-3.2.1.min.js"></script>
-        <script src="public/assets/node_modules/popper/popper.min.js"></script>
-        <script src="public/assets/node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
-        <script src="public/assets/node_modules/register-steps/jquery.easing.min.js"></script>
-        <script src="public/assets/node_modules/register-steps/register-init.js"></script>
-        <script src="public/assets/node_modules/wizard/jquery.validate.min.js"></script>
+        <script src="{{ url('assets/node_modules/jquery/jquery-3.2.1.min.js') }}"></script>
+        <script src="{{ url('assets/node_modules/popper/popper.min.js') }}"></script>
+        <script src="{{ url('assets/node_modules/bootstrap/dist/js/bootstrap.min.js') }}"></script>
+        <script src="{{ url('assets/node_modules/register-steps/jquery.easing.min.js') }}"></script>
+        <script src="{{ url('assets/node_modules/register-steps/register-init.js') }}"></script>
+        <script src="{{ url('assets/node_modules/wizard/jquery.validate.min.js') }}"></script>
         <script type="text/javascript">
             $(function() {
                 $(".preloader").fadeOut();

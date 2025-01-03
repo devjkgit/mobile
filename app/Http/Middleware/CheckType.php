@@ -18,7 +18,7 @@ class CheckType
     public function handle($request, Closure $next)
     {
         if (Auth::user()->is_admin == '0') {
-            return redirect('/'); // If user is not an admin. 
+            return redirect('/dashboard'); // If user is not an admin. 
         }
         return $next($request);
     }

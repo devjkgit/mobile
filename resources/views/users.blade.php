@@ -8,7 +8,7 @@
     <div class="preloader">
         <div class="loader">
             <div class="loader__figure"></div>
-            <p class="loader__label">Admin Panel</p>
+            <p class="loader__label">Mobile-Data</p>
         </div>
     </div>
     <!-- ============================================================== -->
@@ -61,6 +61,9 @@
                                 <tr>
                                     <th>#</th>
                                     <th>Username</th>
+                                    <th>Name</th>
+                                    <th>Mobile No</th>
+                                    <th>Shop Name</th>
                                     <th>Email</th>
                                     <th>Role</th>
                                     <th>Status</th>
@@ -90,6 +93,18 @@
                                         <input type="text" name="username" id="username" class="form-control">
                                     </div>
                                     <div class="form-group" >
+                                        <label>Shop Name</label>
+                                        <input type="text" name="shop_name" id="shop_name" class="form-control">
+                                    </div>
+                                    <div class="form-group" >
+                                        <label>Name</label>
+                                        <input type="text" name="name" id="name" class="form-control">
+                                    </div>
+                                    <div class="form-group" >
+                                        <label>Mobile No.</label>
+                                        <input type="text" name="mobile_no" id="mobile_no" class="form-control">
+                                    </div>
+                                    <div class="form-group" >
                                         <label>Email</label>
                                         <input type="text" name="email" id="email" class="form-control">
                                     </div>
@@ -98,16 +113,14 @@
                                         <select class="form-control selectpicker" id="role" name="role">
                                             <option value="" hidden disabled selected>Select</option>
                                             <option value="Admin">Admin</option>
-                                            <option value="Subadmin">Sub Admin</option>
                                             <option value="User">User</option>
                                         </select>
                                     </div>
                                     <div class="form-group" >
                                         <label>Status</label>
                                         <select class="form-control selectpicker" id="status" name="status">
-                                            <option value="" hidden disabled selected>Select</option>
-                                            <option value="0">Active</option>
-                                            <option value="1">Inactive</option>
+                                            <option value="1" selected>Active</option>
+                                            <option value="0">Inactive</option>
                                         </select>
                                     </div>
                                     <div class="form-group" >
@@ -151,6 +164,18 @@
                                         <input type="text" name="username" id="updateusername" class="form-control">
                                     </div>
                                     <div class="form-group" >
+                                        <label>Shop Name</label>
+                                        <input type="text" name="shop_name" id="update_shop_name" class="form-control">
+                                    </div>
+                                    <div class="form-group" >
+                                        <label>Name</label>
+                                        <input type="text" name="name" id="updatename" class="form-control">
+                                    </div>
+                                    <div class="form-group" >
+                                        <label>Mobile No.</label>
+                                        <input type="text" name="mobile_no" id="update_mobile_no" class="form-control">
+                                    </div>
+                                    <div class="form-group" >
                                         <label>Email</label>
                                         <input type="text" name="email" id="updateemail" class="form-control">
                                     </div>
@@ -159,16 +184,14 @@
                                         <select class="form-control selectpicker" id="updaterole" name="role">
                                             <option value="" hidden disabled selected>Select</option>
                                             <option value="Admin">Admin</option>
-                                            <option value="Subadmin">Sub Admin</option>
                                             <option value="User">User</option>
                                         </select>
                                     </div>
                                     <div class="form-group" >
                                         <label>Status</label>
                                         <select class="form-control selectpicker" id="updatestatus" name="status">
-                                            <option value="" hidden disabled selected>Select</option>
-                                            <option value="0">Active</option>
-                                            <option value="1">Inactive</option>
+                                            <option value="1" selected>Active</option>
+                                            <option value="0">Inactive</option>
                                         </select>
                                     </div>
                                     <div class="form-group" >
@@ -237,15 +260,48 @@
         "columns": [
             {data: 'id', name: 'id'},
             {data: 'username', name: 'username'},
+            {
+                "data":"name",
+                "render": function(data, type, full, meta){
+                    if(data == null){
+                        return "-";
+                    }
+                    else{
+                        return data;
+                    }
+                }
+            },
+            {
+                "data":"mobile_no",
+                "render": function(data, type, full, meta){
+                    if(data == null){
+                        return "-";
+                    }
+                    else{
+                        return data;
+                    }
+                }
+            },
+            {
+                "data":"shop_name",
+                "render": function(data, type, full, meta){
+                    if(data == null){
+                        return "-";
+                    }
+                    else{
+                        return data;
+                    }
+                }
+            },
             {data: 'email', name: 'email'},
             {data: 'role', name: 'role'},
             {
                 "data":"active",
                 "render": function(data, type, full, meta){
-                    if(data == "0"){
+                    if(data == "1"){
                         return "Active";
                     }
-                    else if(data == "1"){
+                    else if(data == "0"){
                         return "Inactive";
                     }
                 }

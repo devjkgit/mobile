@@ -8,9 +8,9 @@ use Auth;
 
 use Validator,Redirect,Response;
 
-use App\User;
+use App\Models\User;
 
-use App\Company;
+use App\Models\Company;
 
 use DataTables;
 
