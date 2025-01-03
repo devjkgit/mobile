@@ -24,6 +24,7 @@ class mobilescontroller extends Controller
 		if ($request->ajax())
         {
             $data = Mobiles::orderby('id','desc');
+            $data->where('userid',Auth::user()->id);
             if($request->start_date && $request->end_date){
                 $data->whereBetween(DB::raw('DATE(created_at)'), [$request->start_date, $request->end_date]);
             }
@@ -34,6 +35,7 @@ class mobilescontroller extends Controller
 
 	public function addentry(Request $request){
         $entry = new Mobiles();
+        $entry->userid = Auth::user()->id;
         $entry->name = $request->name;
         $entry->phone_no = $request->phone_no;
         $entry->company = $request->company;

@@ -299,7 +299,11 @@
                }
            },
         "columns": [
-            {data: 'id', name: 'id'},
+            {
+                "render": function (data, type, row, meta) {
+                    return meta.row + meta.settings._iDisplayStart + 1;
+                }
+            },
             {data: 'name', name: 'name'},
             {data: 'phone_no', name: 'phone_no'},
             {data: 'company', name: 'company'},
