@@ -130,6 +130,9 @@ class userscontroller extends Controller
 
         $usertable = new User();
         $usertable->username = strtolower($request->username);
+        $usertable->shop_name = $request->shop_name;
+        $usertable->name = $request->name;
+        $usertable->mobile_no = $request->mobile_no;
         $usertable->email = strtolower($request->email);
         $usertable->role = $request->role;
         $usertable->active = $request->status;
@@ -171,6 +174,9 @@ class userscontroller extends Controller
 
         $table = User::find($request->userid);
         $table->username = strtolower($request->username);
+        $table->shop_name = $request->shop_name;
+        $table->name = $request->name;
+        $table->mobile_no = $request->mobile_no;
         $table->email = strtolower($request->email);
         $table->role = $request->role;
         $table->active = $request->status;
