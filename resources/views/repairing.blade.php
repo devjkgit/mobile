@@ -301,7 +301,8 @@
         "columns": [
             {
                 "render": function (data, type, row, meta) {
-                    return meta.row + meta.settings._iDisplayStart + 1;
+                    return meta.settings.fnRecordsDisplay() - meta.row;
+                    // return meta.row + meta.settings._iDisplayStart + 1;
                 }
             },
             {data: 'name', name: 'name'},
